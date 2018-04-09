@@ -1,0 +1,9 @@
+.booklist._8b099f4 {
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  background: #fff;
+}
+.booklist-icon-wrapper._8b099f4 {
+  position: relative;
+}

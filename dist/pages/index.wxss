@@ -1,0 +1,4 @@
+@import "./../widgets/booklist.wxss";
+@import "./../components/index-component/category.wxss";
+@import "./../widgets/swiper.wxss";
+@import "./../widgets/search-bar.wxss";

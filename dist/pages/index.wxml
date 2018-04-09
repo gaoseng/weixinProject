@@ -1,0 +1,66 @@
+
+  <view class="container">
+    
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"/>
+        <input type="text" class="weui-search-bar__input" value="{{$SearchBar$inputVal}}" focus="{{$SearchBar$inputShowed}}" bindinput="$SearchBar$inputTyping" bindblur="$SearchBar$showInput" data-wpyshowinput-a="false"/>
+        <block  wx:if="{{$SearchBar$inputVal.length > 0}}">
+          <view class="weui-icon-clear" bindtap="$SearchBar$clearInput">
+            <icon type="clear" size="14"/>
+          </view>
+        </block>    
+      </view>  
+      <label class="weui-search-bar__label" hidden="{{$SearchBar$inputShowed}}" bindtap="$SearchBar$showInput" data-wpyshowinput-a="true">
+        <icon class="weui-icon-search" type="search" size="14"/>
+        <view class="weui-search-bar__text">{{$SearchBar$computedPlaceholder}}</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!$SearchBar$inputShowed}}" bindtap="$SearchBar$search">搜索</view>
+  </view>
+
+    
+  <swiper class="swiper _f007337" autoplay="{{$Swiper$autoplay}}" interval="{{$Swiper$interval}}" circular="{{$Swiper$circular}}" indicator-dots="{{$Swiper$indicatorDots}}" indicator-color="{{$Swiper$indicatorColor}}" indicator-active-color="{{$Swiper$indicatorActiveColor}}">
+      <block  wx:for="{{$Swiper$list}}" wx:key="index" class="_f007337">
+          <swiper-item class="_f007337">
+                <navigator wx:if="{{item.url}}" url="{{item.url}}" class="_f007337">
+                    <image src="{{item.image}}" class="_f007337"/> 
+                </navigator>
+                <view wx:else class="_f007337">
+                    <image src="{{item.image}}" class="swiper-image _f007337"/>
+                </view>
+          </swiper-item>
+
+      </block>
+  </swiper>
+    
+  <view class="category _94ba02e">
+      
+      <block  wx:for="{{$Category$list}}" wx:key="index" class="_94ba02e">
+          <navigator wx:if="{{item.url}}" url="{{item.url}}" class="category-item _94ba02e" style="width:{{$Category$style_width}}">
+              <view class="category-icon-wrapper _94ba02e">
+                  <image src="{{item.image}}" class="category-icon _94ba02e"/>
+              </view>
+              <view class="category-text _94ba02e">{{item.title}}</view>
+          </navigator>
+          <view wx:else class="category-item _94ba02e" style="width:{{$Category$style_width}}">
+             <view class="category-icon-wrapper _94ba02e">
+                  <image src="{{item.image}}" class="category-icon _94ba02e"/>
+              </view>
+              <view class="category-text _94ba02e">{{item.title}}</view>
+          </view>
+      </block>
+  </view>
+    
+  <view class="booklist _8b099f4">      
+    <block  wx:for="{{$Booklist$list}}" wx:key="index" class="_8b099f4">  
+        <view class="_8b099f4">  
+            <image src="{{item.image}}" class="_8b099f4"/>
+         </view>
+         <view class="_8b099f4">{{item.title}}</view>
+    </block>
+    
+     
+  </view>
+  </view>

@@ -1,0 +1,79 @@
+<style lang="less">
+  
+</style>
+<template>
+  <view class="container">
+    <SearchBar :placeholder="searchText"></SearchBar>
+    <Swiper :list.sync="swipers"></Swiper>
+    <Category :list.sync="categorys" col="4"></Category>
+    <Booklist :list.sync ="booklists"></Booklist>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import { funImages,booklistImages } from '../mixins/demo'
+  import SearchBar from '../widgets/search-bar'
+  import Swiper from '../widgets/swiper'
+  import Category from '../components/index-component/category'
+  import test from '../mixins/test'
+  import Booklist from '../widgets/booklist'
+  
+  export default class Index extends wepy.page {
+    mixins = [test]
+    config = {
+      navigationBarTitleText: '首页',
+      navigationBarTextStyle: 'white',
+      navigationBarBackgroundColor: '#049BFF'
+    }
+    onPullDownRefresh(){
+      　　console.log('--------下拉刷新-------')
+      // wx.hideNavigationBarLoading() //完成停止加载
+            setTimeout(() => {
+              wx.stopPullDownRefresh() //停止下拉刷新
+            }, 1000);
+    }
+    components = {
+     SearchBar,
+     Swiper,
+     Category,
+     Booklist
+    }
+    data = {
+      searchText: 'book',
+      swipers: [
+        // 占位图，防止请求错误无图显示
+        {image: '/images/swiper.png'},
+        // {image: '/images/swiper.png'}
+      ],
+      categorys: [
+        {title: '今', image: funImages[0]},
+        {title: '晚', image: funImages[1]},
+        {title: '吃', image: funImages[2]},
+        {title: '鸡', image: funImages[3]}
+      ],
+      booklists: [
+        {id:0,title:'',image:booklistImages[0]},
+        {id:1,title:'',image:booklistImages[1]},
+        {id:2,title:'',image:booklistImages[2]},
+        {id:3,title:'',image:booklistImages[3]},
+        {id:4,title:'',image:booklistImages[4]},
+        {id:5,title:'',image:booklistImages[5]},
+        
+      ]
+    }
+    onReady(){
+      // 处理轮播图
+      this.swipers.push({image: '/images/swiper.png'});
+      this.$apply();
+      console.log(this)
+      this.test();
+    }
+    test(){
+      // this.tap();
+      console.log(this);
+    }
+
+    
+  }
+</script>

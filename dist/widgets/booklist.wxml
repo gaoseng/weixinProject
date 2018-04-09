@@ -1,0 +1,11 @@
+
+  <view class="booklist _8b099f4">      
+    <block  wx:for="{{list}}" wx:key="index" class="_8b099f4">  
+        <view class="_8b099f4">  
+            <image src="{{item.image}}" class="_8b099f4"/>
+         </view>
+         <view class="_8b099f4">{{item.title}}</view>
+    </block>
+    
+     
+  </view>

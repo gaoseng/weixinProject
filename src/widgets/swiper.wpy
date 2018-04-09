@@ -1,0 +1,50 @@
+<template>
+  <swiper class="swiper" autoplay="{{autoplay}}" interval="{{interval}}" 
+    circular="{{circular}}"
+    indicator-dots= "{{indicatorDots}}"
+    indicator-color="{{indicatorColor}}"
+   indicator-active-color="{{indicatorActiveColor}}"
+    >
+      <block wx:for="{{list}}" wx:key="index" >
+          <swiper-item>
+                <navigator wx:if="{{item.url}}" url="{{item.url}}" >
+                    <image src="{{item.image}}"/> 
+                </navigator>
+                <view wx:else >
+                    <image src="{{item.image}}" class="swiper-image"/>
+                </view>
+          </swiper-item>
+
+      </block>
+  </swiper>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class Swiper extends wepy.component {
+  props = {
+    list: {
+      type: Object,
+      default: []
+    }
+  };
+  data = {
+    autoplay: true,
+    interval: 1000,
+    circular: true,
+    indicatorDots:true,
+    indicatorColor: 'rgba(255, 255, 255, 0.6)',
+    indicatorActiveColor: 'rgba(255, 255, 255, 1)'
+  };
+  computed = {
+  };
+  
+}
+</script>
+<style lang="less" scoped>
+    .swiper-image{
+        width: 100%;
+        height: 150px;;
+    }
+</style>
+

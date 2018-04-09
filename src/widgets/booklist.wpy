@@ -1,0 +1,44 @@
+<template>
+  <view class="booklist">      
+    <block wx:for="{{list}}" wx:key="index">  
+        <view >  
+            <image src="{{item.image}}"/>
+         </view>
+         <view>{{item.title}}</view>
+    </block>
+    
+     
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+export default class Booklist extends wepy.component {
+  props = {
+    list: {
+      type: Object,
+      default: []
+    }
+  };
+  onLoad() {
+    console.log(this.list);
+  }
+  methods = {
+      clk(item){
+          console.log(item,1);
+      }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.booklist {
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  background: #fff;
+}
+.booklist-icon-wrapper {
+  position: relative;
+}
+</style>
+

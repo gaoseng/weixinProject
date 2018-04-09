@@ -1,0 +1,19 @@
+
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"/>
+        <input type="text" class="weui-search-bar__input" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindblur="showInput" data-wpyshowinput-a="false"/>
+        <block  wx:if="{{inputVal.length > 0}}">
+          <view class="weui-icon-clear" bindtap="clearInput">
+            <icon type="clear" size="14"/>
+          </view>
+        </block>    
+      </view>  
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput" data-wpyshowinput-a="true">
+        <icon class="weui-icon-search" type="search" size="14"/>
+        <view class="weui-search-bar__text">{{computedPlaceholder}}</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="search">搜索</view>
+  </view>

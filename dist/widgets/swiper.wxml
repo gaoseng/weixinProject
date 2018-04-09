@@ -1,0 +1,14 @@
+
+  <swiper class="swiper _f007337" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+      <block  wx:for="{{list}}" wx:key="index" class="_f007337">
+          <swiper-item class="_f007337">
+                <navigator wx:if="{{item.url}}" url="{{item.url}}" class="_f007337">
+                    <image src="{{item.image}}" class="_f007337"/> 
+                </navigator>
+                <view wx:else class="_f007337">
+                    <image src="{{item.image}}" class="swiper-image _f007337"/>
+                </view>
+          </swiper-item>
+
+      </block>
+  </swiper>
